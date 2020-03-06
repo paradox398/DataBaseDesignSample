@@ -1,4 +1,5 @@
 # README
+
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -15,9 +16,9 @@
 |password|string|null: false|
 |name|storing|null: false|
 ### Association
-- has_many :groups, through: :groups_users
+- has_many :group, through: :groups_users
 - has_many :groups_users
-- has_many :messages
+- has_many :message
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -35,5 +36,6 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :users, through: :groups_users
+- has_many :user, through: :groups_users
 - has_many :groups_users
+- has_many :message
