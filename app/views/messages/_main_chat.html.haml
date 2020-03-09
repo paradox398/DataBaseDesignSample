@@ -1,0 +1,29 @@
+.chat-main
+  .header-group
+    .group-info
+      %p.group-info__group-name techcamp
+      .group-info__member-list
+        Member :
+        .group-info__member-list--users masa
+    = link_to '#', class: 'header-group__edit' do
+      .header-group__edit--text Edit
+
+  .message-list
+    .message-list__message-info
+      %p.message-list__message-info--user-name masa
+      %p.message-list__message-info--day-time 2020/3/8(Sun) 8:27:55
+    %p.message-list__message-box おはよう！
+    .message-list__message-info
+      %p.message-list__message-info--user-name masa
+      %p.message-list__message-info--day-time 2020/3/8(Sun) 12:12:33
+    %p.message-list__message-box こんにちは！
+
+  .message-form
+    .input-box
+      .input-box__message-box
+        %form{action:'#', method:'post'}
+        %input{type:'text', placeholder:'type a message', class:'input-box__message-box--box'}
+          %label{class: 'input-box__message-box--image'}
+            = icon('fas', 'image')
+            %input{type:'file' ,style:'display:none'}
+      %input{type:'submit',value:'Send',class:'input-box__send'}
