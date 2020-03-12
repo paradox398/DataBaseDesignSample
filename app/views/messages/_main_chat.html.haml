@@ -1,29 +1,25 @@
 .chat-main
   .header-group
     .group-info
-      %p.group-info__group-name techcamp
+      %p.group-info__group-name 
+        = @group.name
       .group-info__member-list
         Member :
-        .group-info__member-list--users masa
-    = link_to '#', class: 'header-group__edit' do
+        .group-info__member-list--users
+          - @group.users.each do |user|
+            = user.name
+          
+    = link_to edit_group_path(@group), class: 'header-group__edit' do
       .header-group__edit--text Edit
 
-  .message-list
-    .message-list__message-info
-      %p.message-list__message-info--user-name masa
-      %p.message-list__message-info--day-time 2020/3/8(Sun) 8:27:55
-    %p.message-list__message-box おはよう！
-    .message-list__message-info
-      %p.message-list__message-info--user-name masa
-      %p.message-list__message-info--day-time 2020/3/8(Sun) 12:12:33
-    %p.message-list__message-box こんにちは！
+  .messages
+    = render @messages
 
-  .message-form
-    .input-box
-      .input-box__message-box
-        %form{action:'#', method:'post'}
-        %input{type:'text', placeholder:'type a message', class:'input-box__message-box--box'}
-          %label{class: 'input-box__message-box--image'}
-            = icon('fas', 'image')
-            %input{type:'file' ,style:'display:none'}
-      %input{type:'submit',value:'Send',class:'input-box__send'}
+  .form
+    = form_for [@group, @message] do |f|
+      .new_message__input-box
+        = f.text_field :content, class: 'new_message__input-box--text', placeholder: 'type a message'
+        = f.label :image, class: 'new_message__input-box--image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden', style:'display:none'
+      = f.submit 'Send', class: 'form__send'
