@@ -9,6 +9,7 @@
   .header-user {
     background-color: #253141;
     height: 100px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,6 +44,7 @@
     height: calc(100vh - 100px);
     width: 300px;
     padding: 0 20px;
+    overflow: scroll;
     .group-list {
       height: 91px;
       display: block;
@@ -69,6 +71,7 @@
     background-color: #ffffff;
     height: 100px;
     padding: 0 40px;
+    width: calc(100vw - 300px);
     .group-info {
       float: left;
       &__group-name {
@@ -101,43 +104,47 @@
       }
     }
   }
-  .message-list {
+  .messages {
     background-color: #fafafa;
+    width: calc(100vw - 300px);
     height: calc(100vh - 190px);
-    padding: 46px 40px;
-    &__message-info {
+    padding: 46px 40px 0px 40px;
+    overflow: scroll;
+    .upper-message {
+      width: 100%;
       display: flex;
-      &--user-name {
+      &__user-name {
         color: #333333;
         font-size: 16px;
         font-weight: bold;
         padding-bottom: 12px;
       }
-      &--day-time {
+      &__date {
         color: #999999;
         font-size: 12px;
         padding-left: 10px;
       }
     }
-    &__message-box {
+    .lower-message {
       color: #434a54;
       font-size: 14px;
       padding-bottom: 46px;
     }
   }
-  .message-form {
+
+  .form {
     background-color: #d2d2d2;
     height: 90px;
     padding: 20px 40px;
-    .input-box {
+    .new_message {
       display: flex;
-      &__message-box {
-        position: relative;
-        width: 100%;
+      &__input-box {
         height: 50px;
-        &--box {
-          width: 100%;
+        width: 100%;
+        position: relative;
+        &--text {
           height: 50px;
+          width: 100%;
           padding: 0 40px 0 10px;
         }
         &--image {
@@ -147,15 +154,14 @@
           font-size: 22px;
         }
       }
-      &__send {
-        background-color: #38aef0;
-        height: 50px;
-        width: 100px;
-        color: #ffffff;
-        margin-left: 15px;
-        float: right;
-        padding: 0 30px;
-      } 
+    }
+    &__send {
+      background-color: #38aef0;
+      height: 50px;
+      width: 100px;
+      color: #ffffff;
+      margin-left: 15px;
+      padding: 0 30px;
     }
   }
 }
