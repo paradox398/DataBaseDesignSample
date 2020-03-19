@@ -1,6 +1,6 @@
 lock "~> 3.12.1"
 
-set :application, "chat-space"
+set :application, "DataBaseDesignSample"
 set :repo_url, "git@example.com:paradox398/DataBaseDesignSample.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
