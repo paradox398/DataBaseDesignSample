@@ -1,6 +1,6 @@
-lock "~> 3.12.1"
+lock '3.12.1'
 
-set :application, "chat-space"
+set :application, "DataBaseDesignSample"
 set :repo_url, "git@example.com:paradox398/DataBaseDesignSample.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -9,7 +9,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['ssh -i ChatSpace.pem ec2-user@18.178.211.35'] 
+                  keys: ['~/.ssh/ChatSpace.pem'] 
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
